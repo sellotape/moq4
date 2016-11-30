@@ -24,7 +24,7 @@ namespace Moq
 		/// </summary>
 		public static IReturnsResult<TMock> ReturnsAsync<TMock, TResult>(this IReturns<TMock, Task<TResult>> mock, Func<TResult> value) where TMock : class
 		{
-			return mock.ReturnsAsync(value());
+			return mock.Returns(() => Task.FromResult(value()));
 		}
 
 		/// <summary>
